@@ -25,6 +25,7 @@
             <version>7.6.0</version>
             <scope>test</scope>
         </dependency>
+<<<<<<< Updated upstream
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
         <dependency>
@@ -38,4 +39,10 @@
     </dependencies>
 
     
+=======
+        
+    </dependencies>
+
+
+>>>>>>> Stashed changes
 </project>
