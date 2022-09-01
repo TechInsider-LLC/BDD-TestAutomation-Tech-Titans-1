@@ -26,16 +26,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>7.3.2</version>
-            <scope>test</scope>
-        </dependency>
-
-
     </dependencies>
 
-    
+
 </project>
