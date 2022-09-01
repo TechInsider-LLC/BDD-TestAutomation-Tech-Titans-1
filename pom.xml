@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
 
+
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -27,7 +28,6 @@
 
 
 
-    <dependencies>
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
         <dependency>
