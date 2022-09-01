@@ -1,5 +1,14 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 public class Demo {
-    public static void main(String[] args) {
-       System.out.println("Akobir");
+
+
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://demo.ebanq.com/log-in");
+   }
 }
 
