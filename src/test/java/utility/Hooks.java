@@ -1,4 +1,4 @@
-package stepDefinitions;
+package utility;
 
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -14,7 +14,7 @@ public class Hooks {
    public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     
     public static WebDriver getDriver(){
