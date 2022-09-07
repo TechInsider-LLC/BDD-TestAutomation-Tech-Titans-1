@@ -1,4 +1,4 @@
-package utility;
+package stepDefinitions;
 
 
 import io.cucumber.java.After;
@@ -20,7 +20,7 @@ public class Hooks {
 
     @After
     public void tearDown() {
-       getDriver().quit();
+       driver.quit();
     }
     public static WebDriver getDriver() {
        return driver;
