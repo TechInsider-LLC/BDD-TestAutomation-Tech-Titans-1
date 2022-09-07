@@ -11,6 +11,10 @@ import org.junit.runner.RunWith;
         tags = "@myTestTag",
         dryRun = false,
         plugin = {"pretty", "html:target/cucumber-reports.html"}
+
+        features = "src/test/java/features",
+        glue = "stepDefinitions"
+
 )
 public class TestRunner {
 }
