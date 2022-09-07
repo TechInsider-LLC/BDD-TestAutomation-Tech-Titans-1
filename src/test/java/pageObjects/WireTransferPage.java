@@ -88,13 +88,13 @@ public class WireTransferPage {
     @FindBy(css = ".bottom .def-btn-success ")
     public WebElement continueButton;
 
-    @FindBy(css = ".header .controls__logout")
-    public WebElement logOutLink;
+    @FindBy(css = ".success-popup .popup-message")
+    public WebElement successMessage1;
 
     @FindBy(css = ".error-word")
     public WebElement errorField;
 
-    public String logOut = "Log Out";
+    public String successMessage = "Your request has been sent for approval.";
 
     public String fieldsRequired = "Field is required.";
 
