@@ -20,6 +20,10 @@ public class LoginPage {
     public String password = "Demo-Access1";
     public String invalUser = "";
     public String invalPass = "";
+
+    public String actual;
+
+    public String expected;
     WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
     public void homepage() {
@@ -48,11 +52,20 @@ public class LoginPage {
     }
 
     public void verifyLogin() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.controls > div > span")));
+        actual = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.controls > div > span"))).getText();
+        expected = "Log Out";
+        assertEquals(expected, actual);
+
     }
 
     public void verifyInvalCred(){
-        getDriver().findElement(By.cssSelector("div.fields-container label"));
+        actual = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.fields-container label"))).getText();
+        expected = "Field is required.";
+        assertEquals(expected, actual);
+
+
+
+
     }
 
 
