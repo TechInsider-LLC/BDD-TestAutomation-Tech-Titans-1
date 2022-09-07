@@ -27,8 +27,8 @@ public class SingUp {
 
     }
     @When("Customer enter all the requirements")
-    public void customer_enter_all_the_requirements() {
-
+    public void customer_enter_all_the_requirements() throws InterruptedException {
+        Thread.sleep(10000);
         driver.findElement(By.cssSelector("[href=\"/sign-up\"]")).click();
         driver.findElement(By.cssSelector("#first-n-input")).sendKeys(username);
         driver.findElement(By.cssSelector("#last-name-input")).sendKeys(username);
@@ -38,9 +38,9 @@ public class SingUp {
         driver.findElement(By.cssSelector("#no-autocomplete")).sendKeys(password);
         driver.findElement(By.cssSelector("#confirm-ps")).sendKeys(password);
         driver.findElement(By.cssSelector("#securityQuestionId")).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#a1a880648b57"),"Name"));
-        driver.findElement(By.cssSelector("#a1a880648b57")).click();
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#a1a880648b57"),"Name"));
+        driver.findElement(By.cssSelector(".ng-dropdown-panel-items .ng-option")).click();
 
 
 
