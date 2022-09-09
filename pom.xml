@@ -30,7 +30,7 @@
                 <version>2.20</version>
                 <configuration>
                     <includes>
-                        <include>Runner</include>
+                        <include>TestRunner</include>
                     </includes>
                 </configuration>
             </plugin>

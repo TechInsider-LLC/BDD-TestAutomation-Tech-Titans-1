@@ -28,6 +28,7 @@ public class SingUp {
     }
     @When("Customer enter all the requirements")
     public void customer_enter_all_the_requirements() throws InterruptedException {
+
         Thread.sleep(2000);
         signup.signUpButton.click();
         signup.firstNameInput.sendKeys(name);
@@ -43,6 +44,8 @@ public class SingUp {
         signup.securityQuestionAnswerInput.sendKeys(name);
         signup.checkbox.click();
         signup.submitSignUpButton.click();
+
+
     }
     @Then("Customer see success message")
     public void customer_see_success_message() throws InterruptedException {
