@@ -3,58 +3,110 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.PageFactory;
+import pageObjects.SignUpPage;
+import utility.RandomText;
 
-import java.time.Duration;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SingUp {
 
     WebDriver driver = new ChromeDriver();
-    String username;
+    SignUpPage signup= PageFactory.initElements(driver,SignUpPage.class);
+    RandomText random = new RandomText();
+    String email = random.getRandomGmail(8);
+    StringBuilder name= random.getRandomText(8);
     String password;
-    String gmail;
 
     @Given("Customer go to EBANQ homepage")
     public void customer_go_to_ebanq_homepage() {
-        username= "demo";
         password= "Demoebanq1$";
-        gmail= "Demo@gmail.com";
-        driver.get("https://demo.ebanq.com/log-in");
-
+        driver.get(signup.homeURL);
     }
     @When("Customer enter all the requirements")
-    public void customer_enter_all_the_requirements() {
-
-        driver.findElement(By.cssSelector("[href=\"/sign-up\"]")).click();
-        driver.findElement(By.cssSelector("#first-n-input")).sendKeys(username);
-        driver.findElement(By.cssSelector("#last-name-input")).sendKeys(username);
-        driver.findElement(By.cssSelector("#username")).sendKeys(username);
-        driver.findElement(By.cssSelector("#em")).sendKeys(gmail);
-        driver.findElement(By.cssSelector("#confirm-em")).sendKeys(gmail);
-        driver.findElement(By.cssSelector("#no-autocomplete")).sendKeys(password);
-        driver.findElement(By.cssSelector("#confirm-ps")).sendKeys(password);
-        driver.findElement(By.cssSelector("#securityQuestionId")).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#a1a880648b57"),"Name"));
-        driver.findElement(By.cssSelector("#a1a880648b57")).click();
-
-
-
-
-        
-
-        driver.findElement(By.cssSelector("#sequrityQuestionAnswer")).sendKeys("demo");
-        driver.findElement(By.cssSelector(".checkbox-checkmark")).click();
-        driver.findElement(By.cssSelector(".checkbox-checkmark")).submit();
+    public void customer_enter_all_the_requirements() throws InterruptedException {
+        Thread.sleep(2000);
+        signup.signUpButton.click();
+        signup.firstNameInput.sendKeys(name);
+        signup.lastNameInput.sendKeys(name);
+        signup.usernameInput.sendKeys(name);
+        signup.emailInput.sendKeys(email);
+        signup.confirmEmailInput.sendKeys(email);
+        signup.passwordInput.sendKeys(password);
+        signup.confirmPasswordInput.sendKeys(password);
+        signup.securityQuestion.click();
+        Thread.sleep(2000);
+        signup.option3SecQues.click();
+        signup.securityQuestionAnswerInput.sendKeys(name);
+        signup.checkbox.click();
+        signup.submitSignUpButton.click();
     }
     @Then("Customer see success message")
-    public void customer_see_success_message() {
+    public void customer_see_success_message() throws InterruptedException {
+        String expected = signup.successMessage.trim();
+        Thread.sleep(2000);
+        String actual = signup.signUpComplate.getText().trim();
+        assertTrue(actual.contains(expected));
 
     }
+
+    @Given("User go to EBANQ page")
+    public void user_go_to_ebanq_page() {
+        password= "Demoebanq1$";
+        driver.get(signup.homeURL);
+    }
+    @When("User enter all requirements")
+    public void user_enter_all_requirements() throws InterruptedException {
+        Thread.sleep(2000);
+        signup.signUpButton.click();
+        signup.profileType.click();
+        Thread.sleep(2000);
+        signup.corporate.click();
+        signup.companyName.sendKeys(name);
+        signup.firstNameInput.sendKeys(name);
+        signup.lastNameInput.sendKeys(name);
+        signup.usernameInput.sendKeys(name);
+        signup.emailInput.sendKeys(email);
+        signup.confirmEmailInput.sendKeys(email);
+        signup.passwordInput.sendKeys(password);
+        signup.confirmPasswordInput.sendKeys(password);
+        signup.securityQuestion.click();
+        Thread.sleep(2000);
+        signup.option3SecQues.click();
+        signup.securityQuestionAnswerInput.sendKeys(name);
+        signup.checkbox.click();
+        signup.submitSignUpButton.click();
+    }
+    @Then("User see success message")
+    public void user_see_success_message() throws InterruptedException {
+        String expected = signup.successMessage.trim();
+        Thread.sleep(2000);
+        String actual = signup.signUpComplate.getText().trim();
+        assertTrue(actual.contains(expected));
+    }
+
+    @Given("User at EBANQ page")
+    public void user_at_ebanq_page() {
+        driver.get(signup.homeURL);
+    }
+    @When("User signup without info")
+    public void user_signup_without_info() throws InterruptedException {
+        Thread.sleep(2000);
+        signup.signUpButton.click();
+        signup.submitSignUpButton.click();
+    }
+    @Then("User see message")
+    public void user_see_message() throws InterruptedException {
+        String expected = signup.errorMessage;
+        Thread.sleep(2000);
+        String  actual = signup.errorMessageLoct.getText().trim();
+        assertEquals(expected,actual);
+    }
+
+
 
 
 }
