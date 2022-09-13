@@ -1,4 +1,6 @@
-package utility;
+package stepDefinitions;
+
+
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -15,15 +17,16 @@ public class Hooks {
    public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-   }
-    
-    public static WebDriver getDriver(){
-        return driver;
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
+
     @After
-    public void down(){
-        driver.quit();
+    public void tearDown() {
+       driver.quit();
     }
+    public static WebDriver getDriver() {
+       return driver;
+   }
+
 }
