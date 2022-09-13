@@ -13,9 +13,6 @@ import java.time.Duration;
 public class Hooks {
     private static WebDriver driver;
 
-   @Before
-   public void setUp() {
-
     @Before
    public void setUp(){
         WebDriverManager.chromedriver().setup();
@@ -32,7 +29,4 @@ public class Hooks {
        return driver;
    }
 
-    public static WebDriver getDriver(){
-        return driver;
-    }
 }
