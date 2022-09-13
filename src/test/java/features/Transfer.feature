@@ -1,3 +1,4 @@
+@Regression
 Feature: Transferring money
   Scenario: Transferring money between accounts
     Given user has given credentials
