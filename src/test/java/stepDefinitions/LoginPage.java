@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.Hooks.getDriver;
+import static utility.Hooks.getDriver;
 
 public class LoginPage {
 

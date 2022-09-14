@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static stepDefinitions.Hooks.getDriver;
+import static utility.Hooks.getDriver;
 
 
 public class TransferAccount {

@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.Hooks.getDriver;
+import static utility.Hooks.getDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
