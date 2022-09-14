@@ -1,5 +1,6 @@
-package stepDefinitions;
+package utility;
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -15,9 +16,16 @@ public class Hooks {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().window().maximize();
     }
-    
-    public static WebDriver getDriver(){
-        return driver;
+
+    @After
+    public void tearDown(){
+        driver.quit();
     }
+
+    public static WebDriver getDriver() {
+       return driver;
+   }
+
 }
