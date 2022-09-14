@@ -1,4 +1,4 @@
-package stepDefinitions;
+package utility;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -23,8 +23,9 @@ public class Hooks {
     public void tearDown(){
         driver.quit();
     }
-    
-    public static WebDriver getDriver(){
-        return driver;
-    }
+
+    public static WebDriver getDriver() {
+       return driver;
+   }
+
 }
