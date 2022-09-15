@@ -32,7 +32,7 @@ public class SignUpPage {
     @FindBy(css=".controls__submit:last-child")
     public WebElement submitSignUpButton;
     @FindBy(css=".success-popup .popup-message")
-    public WebElement signUpComplate;
+    public WebElement signUpComplete;
     @FindBy(css=".fields-container #corporate-account")
     public WebElement profileType;
     @FindBy(css=".ng-option:nth-child(2)")
