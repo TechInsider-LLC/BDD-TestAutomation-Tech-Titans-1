@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import utility.Hooks;
 
 
-public class WireTransferPage {
+public class OutgoingWireTransferPage {
 
     WebDriver getDriver = Hooks.getDriver();
 
