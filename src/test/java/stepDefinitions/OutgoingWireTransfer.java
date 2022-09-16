@@ -2,10 +2,9 @@ package stepDefinitions;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.WireTransferPage;
+import pageObjects.OutgoingWireTransferPage;
 
 import java.time.Duration;
 
@@ -13,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static utility.Hooks.getDriver;
 
-public class WireTransfer {
+public class OutgoingWireTransfer {
 
     String username;
     String password;
@@ -27,7 +26,7 @@ public class WireTransfer {
     String amountToTransfer;
 
 
-    WireTransferPage transferPage = PageFactory.initElements(getDriver(), WireTransferPage.class);
+    OutgoingWireTransferPage transferPage = PageFactory.initElements(getDriver(), OutgoingWireTransferPage.class);
 
     @Given("User on the Ebanq page")
     public void user_on_the_ebanq_page() {
