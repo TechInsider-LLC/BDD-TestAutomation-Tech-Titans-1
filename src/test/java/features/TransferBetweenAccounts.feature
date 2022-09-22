@@ -6,4 +6,4 @@ Feature: Transferring money
     Then User sees success transfer message
     When user logs out
     Then user is back to home page
-    When Admin approves the transaction
+    When Admin Approves transaction
