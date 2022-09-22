@@ -7,4 +7,4 @@
       And User Select account click Continue and clicks confirm
       Then User sees success message
       When Admin executes transactions
-    
+
