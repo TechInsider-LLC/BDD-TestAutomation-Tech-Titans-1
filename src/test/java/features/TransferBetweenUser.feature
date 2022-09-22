@@ -4,3 +4,4 @@ Feature: Transfer Between Users
     When User click on TransferBetweenUser
     When User fill out the form and confirm
     Then User get verify message
+    When Admin executed transaction
