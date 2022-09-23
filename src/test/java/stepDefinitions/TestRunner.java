@@ -1,19 +1,18 @@
 package stepDefinitions;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
 
-@RunWith(Cucumber.class)
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
+
+
 @CucumberOptions(
-    features = {"src/test/java/features"},
+        features = {"src/test/java/features"},
         glue = {"stepDefinitions","utility"},
-        tags = "@regression",
+        tags = "@myTestTag",
         dryRun = false,
-        plugin = {"pretty", "html:target/cucumber/cucumber-reports.html",
-                    "json:target/cucumber/cucumber.json"
-    }
+        plugin = {"pretty", "html:target/cucumber-reports.html"}
 
 )
-public class TestRunner {
+public class TestRunner extends AbstractTestNGCucumberTests {
 }
+
