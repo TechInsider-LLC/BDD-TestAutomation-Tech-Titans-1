@@ -1,7 +1,7 @@
 package stepDefinitions;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+
+import io.cucumber.testng.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cucumber/cucumber-reports.html",
                     "json:target/cucumber/cucumber.json"
     }
-
 )
 public class TestRunner {
 }

@@ -3,7 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.en.*;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
@@ -15,8 +15,8 @@ import pageObjects.CardFundingTransferPage;
 import java.time.Duration;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 import static utility.Hooks.getDriver;
 
 public class CardFundingTransfer {
