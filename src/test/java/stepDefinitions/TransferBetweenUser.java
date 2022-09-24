@@ -6,17 +6,20 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 import static utility.Hooks.getDriver;
 
 public class TransferBetweenUser {

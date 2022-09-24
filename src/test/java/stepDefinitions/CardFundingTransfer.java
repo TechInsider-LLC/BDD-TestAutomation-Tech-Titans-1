@@ -1,6 +1,9 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import io.restassured.http.Cookies;
+import io.restassured.response.Response;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
@@ -11,7 +14,9 @@ import pageObjects.CardFundingTransferPage;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertTrue;
+import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 import static utility.Hooks.getDriver;
 
 public class CardFundingTransfer {
@@ -24,6 +29,7 @@ public class CardFundingTransfer {
     String password;
     String amount;
     String descriptionMessage;
+    String id;
 
     @Given("User is on Ebanq page")
     public void user_is_on_ebanq_page() {
@@ -66,5 +72,32 @@ public class CardFundingTransfer {
         wait.until(ExpectedConditions.textToBePresentInElement(fundingTransfer.successPopupMessage,expected));
         String actual = fundingTransfer.successPopupMessage.getText().trim();
         assertTrue(actual.contains(expected));
+
+        id= actual.split("ID #")[1].split("Back")[0].trim();
+
+    }
+    @When("Admin executes transactions")
+    public void admin_executes_transactions() {
+        //admin login
+        Response response =
+                given().contentType("application/json")
+                        .body("{\"data\":{\"email\":\"Bank-Admin\",\"password\":\"Demo-Access1\"}}")
+                        .when().post("https://api-demo.ebanq.com/users/public/v1/auth/signin")
+                        .then().log().all().statusCode(200).extract().response();
+
+        String token = response.path("data.accessToken");
+        Cookies cookies = response.getDetailedCookies();
+
+        //executed
+        String actual =
+                given().log().all()
+                        .contentType("application/json")
+                        .header("Authorization", "Bearer " + token)
+                        .cookies(cookies)
+                        .when().post("https://api-demo.ebanq.com/accounts/private/v1/admin/requests/execute/{id}", id)
+                        .then().log().all().statusCode(200).extract().path("data.status");
+
+        String expected = "executed";
+        assertEquals(expected, actual);
     }
 }
