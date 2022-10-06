@@ -1,6 +1,6 @@
 @regression
 Feature: Log-in
-  @login
+  @login @myTestTag
   Scenario: Successful User Login
 
     Given User has valid credentials

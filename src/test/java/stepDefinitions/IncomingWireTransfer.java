@@ -9,7 +9,7 @@ import pageObjects.IncomingWireTransferPage;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 import static utility.Hooks.getDriver;
 

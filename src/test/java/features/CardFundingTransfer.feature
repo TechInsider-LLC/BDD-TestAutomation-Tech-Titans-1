@@ -1,5 +1,5 @@
 @regression
-
+@myTestTag
   Feature: Funding Transfer
     Scenario: Card Funding Transfer
       Given User is on Ebanq page

@@ -24,13 +24,17 @@
                 <version>2.20</version>
                 <configuration>
                     <includes>
-                        <include>TestRunner</include>
+                        <include>**/*Runner.java</include>
                     </includes>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
+    <properties>
+        <failsafe.rerunFailingTestsCount>2</failsafe.rerunFailingTestsCount>
+        <surefire.rerunFailingTestsCount>2</surefire.rerunFailingTestsCount>
+    </properties>
 
 
 

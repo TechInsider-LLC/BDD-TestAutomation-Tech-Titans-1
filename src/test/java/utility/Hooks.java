@@ -16,7 +16,7 @@ public class Hooks {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
     }
 
     @After

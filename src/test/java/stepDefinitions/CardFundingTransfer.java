@@ -11,7 +11,7 @@ import pageObjects.CardFundingTransferPage;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 import static utility.Hooks.getDriver;
 
 public class CardFundingTransfer {
