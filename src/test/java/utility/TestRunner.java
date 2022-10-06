@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
         tags = "@myTestTag",
         dryRun = false,
         plugin = {"pretty", "html:target/cucumber-reports.html",
-                "rerun:target/rerun.txt"}
+                "rerun:target/rerun/failedTests.txt"}
 
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
